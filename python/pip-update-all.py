@@ -9,7 +9,7 @@ for dist in pip.get_installed_distributions():
 	print("----- I should have installed conda!!! ----------")
 	print("-------------------------------------------------")
 	print("\n")
-	call("sudo pip3 install --upgrade " + dist.project_name, shell=True)
+	call("sudo -H pip3 -v install --upgrade " + dist.project_name, shell=True)
 
 
 print(" ####### DONE ########\n\n")
