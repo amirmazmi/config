@@ -12,4 +12,4 @@ for dist in pip.get_installed_distributions():
 	call("sudo pip3 install --upgrade " + dist.project_name, shell=True)
 
 
-print(" ####### DONE ########")
+print(" ####### DONE ########\n\n")
