@@ -26,7 +26,8 @@ x <- c(
     "R.utils",
     "Hmisc",
     "pacman",
-    "ranger"
+    "ranger",
+	"timekit"
 )
 
 install.packages(x)
