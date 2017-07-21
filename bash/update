@@ -1,5 +1,13 @@
 #script to run updates
 
-sudo apt-get update -y && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y && sudo apt autoremove
+sudo apt-get update -y && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y && sudo apt autoremove -y
 
 printf "\n\n\t###### DONE ######\n\n\n"
+
+
+# or add the following to .bashrc - <vim .bashrc>
+#    # user defined aliases 
+#    alias update='sudo apt-get update -y && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y && sudo apt autoremove; printf "\n\n\t###### DONE ######\n\n\n" '
+
+# then reload bashrc - <. ~/.bashrc>
+# done - test command
