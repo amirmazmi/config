@@ -43,6 +43,12 @@ if (check.for.updates.R()){
 #     Below is only if using global library     #
 #################################################
 
+# Best way
+# edit C:\Program Files\R\R-3.4.0\etc\Rprofile.site
+# my custom library path
+#.libPaths=("C:/Program Files/R/library")
+
+
 # check path to global library
 Sys.getenv("R_LIBS_USER")
 
