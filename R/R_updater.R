@@ -55,13 +55,19 @@ Sys.getenv("R_LIBS_USER")
 # packages by default are installed to the first element of .libPaths
 .libPaths()
 
+
+# ---WINDOWS
 # open default environment file
-file.edit(".Renviron")
+file.edit(".Renviron") 
 # Set default global library
 # R_LIBS_USER=C:/Program Files/R/library
 
-
-
-
+# ---Linux
+# file is REnviron
+# alternatively, add your user to the default R group called "staff":
+#       sudo adduser <user> staff
+# then make sure all .libPaths folders have permissions for group to write in those folders:
+#       sudo chmod -R g+w library/
+#       sudo chmod -R g+w site-library/
 
 
