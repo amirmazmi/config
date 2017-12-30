@@ -11,10 +11,7 @@
 if(!require(pacman)) {
     install.packages("pacman"); require(pacman)
 }
-
-
 p_load(installr)
-
 
 # check current version
 version
@@ -30,13 +27,17 @@ if (check.for.updates.R()){
         start_new_R=F, quit_R=F)
 }
 
-
-
-#--------------------
 ## Restart Rstudio ##
+
+
+
+
+#--------------------
+# RStudio versions
 #--------------------
 
-
+# Use GUI to check current version in Help > About RStudio
+# To update, Help > Check for Updates
 
 
 
