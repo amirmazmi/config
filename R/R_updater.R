@@ -3,6 +3,9 @@
 #   Script to run update and check R version
 #-------------------------------------------
 #
+# installr is only for windows - https://github.com/talgalili/installr/issues/88
+
+
 
 # Use pacman to manage packages
 if(!require(pacman)) {
@@ -14,7 +17,7 @@ p_load(installr)
 
 
 # check current version
-# version
+version
 
 # tells you if there is a new version of R or not.
 check.for.updates.R()
