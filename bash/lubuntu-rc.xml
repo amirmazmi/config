@@ -1,0 +1,72 @@
+# lubuntu keyboard shortcut bindings
+
+
+# Copy below into .config/openbox/lubuntu-rc.xml
+# run " openbox --reconfigure" to update
+
+
+# Quarter tiles
+  <keybind key="W-S-Up">        # TopLeftQuarter
+      <action name="TopLeftQuarter"/>
+      <action name="MoveResizeTo"><x>0</x><y>0</y><height>50%</height><width>50%</width></action>
+  </keybind>
+  <keybind key="W-S-Right">        # TopRightQuarter
+      <action name="TopRightQuarter"/>
+      <action name="MoveResizeTo"><x>-0</x><y>0</y><height>50%</height><width>50%</width></action>
+  </keybind>
+  <keybind key="W-S-Left">        # BottomLeftQuarter
+      <action name="BottomLeftQuarter"/>
+      <action name="MoveResizeTo"><x>0</x><y>-0</y><height>50%</height><width>50%</width></action>
+  </keybind>
+  <keybind key="W-S-Down">        # BottomRightQuarter
+      <action name="BottomRightQuarter"/>
+      <action name="MoveResizeTo"><x>-0</x><y>-0</y><height>50%</height><width>50%</width></action>
+  </keybind>
+
+
+# Maximize, minimize and half screen
+
+  <!-- Keybindings for window tiling -->
+  <keybind key="C-W-Up">        # FullScreen
+      <action name="Maximize"/>
+  </keybind>
+  <keybind key="C-W-Down">      # Minimize
+	     <action name="Iconify"/>
+	</keybind>
+  <keybind key="W-Left">        # HalfLeftScreen
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo"><x>0</x><y>0</y><height>100%</height><width>50%</width></action>
+  </keybind>
+  <keybind key="W-Right">        # HalfRightScreen
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo"><x>-0</x><y>0</y><height>100%</height><width>50%</width></action>
+  </keybind>
+  <keybind key="W-Up">        # HalfUpperScreen
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo"><x>0</x><y>0</y><width>100%</width><height>50%</height></action>
+  </keybind>
+  <keybind key="W-Down">        # HalfLowerScreen
+      <action name="UnmaximizeFull"/>
+      <action name="MoveResizeTo"><x>0</x><y>-0</y><width>100%</width><height>50%</height></action>
+  </keybind>
+<!-- Keybindings for running applications on Home + E -->
+  <keybind key="W-e">
+      <action name="Execute">
+        <startupnotify>
+            <enabled>true</enabled>
+            <name>File manager</name>
+        </startupnotify>
+        <command>lxsession-default file_manager</command>
+      </action>
+  </keybind>
+<!-- Keybindings for running Run menu from Lxpanel on Home + R-->
+  <keybind key="W-r">
+      <action name="Execute">
+          <command>lxsession-default launcher</command>
+      </action>
+  </keybind>
+  <keybind key="A-F2">
+      <action name="Execute">
+        <command>lxsession-default launcher</command>
+      </action>
+  </keybind>
