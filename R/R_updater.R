@@ -21,8 +21,9 @@ check.for.updates.R()
 
 
 # install, move, update.package, quit R.
+# copy_packages=F since using global library
 if (check.for.updates.R()){
-    updateR(fast=F, browse_news=F, install_R=T, copy_packages=T, 
+    updateR(fast=F, browse_news=F, install_R=T, copy_packages=F, 
         copy_Rprofile.site=T, keep_old_packages=F, update_packages=T, 
         start_new_R=F, quit_R=F)
 }
