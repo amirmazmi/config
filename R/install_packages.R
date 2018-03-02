@@ -2,6 +2,10 @@
 # R packages to install 
 # Typical libraries used
 #-------------------------------------------
+# make sure R shortcut is set to run as admin
+# right click on shortcut > properties > run as admin
+
+
 
 x <- c(
     "TTR",
