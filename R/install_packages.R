@@ -31,7 +31,7 @@ x <- c(
     "Hmisc",
     "pacman",
     "ranger",
-    "timekit"
+    "timetk",   # formerly known as timekit
 )
 
 install.packages(x)
