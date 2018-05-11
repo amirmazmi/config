@@ -1,0 +1,36 @@
+/***** Sample script to pivot columns is SQL | Originally used in MSSQL and SSMS****/
+
+
+
+-- get list of columns for specific vartype
+DECLARE @listStr nvarchar(MAX) = (SELECT '[' + pointName  + '], '
+									FROM [HVACOpt].[ngeeannpoly].[P1propClean] 
+									WHERE [varType]='temperature'
+									FOR XML PATH('') )
+
+-- this set a command as a string
+DECLARE @commd nvarchar(MAX) = (SELECT 'COUNT([' + pointName  + ']) [' + pointname , '], '
+									FROM [HVACOpt].[ngeeannpoly].[P1propClean] 
+									WHERE [varType]='temperature'
+									FOR XML PATH(''))
+
+--print @listStr
+--print @commd
+
+-- count rows with NANs for each column
+
+
+
+DECLARE @countdata nvarchar(MAX)= 'SELECT '[' + pointname  + '], '
+									FROM (
+										SELECT [count],[pointname] 
+										FROM (
+											SELECT ' + LEFT(@commd, LEN(@commd)-1) + 
+											' FROM [HVACOpt].[ngeeannpoly].[P1Clean] ) vv 
+											unpivot( [count] for [pointname] in (' + LEFT(@listStr, LEN(@listStr)-1) + ')) vava 
+												WHERE [count] > 0
+											) 
+									FOR XML PATH('') )'
+--print @countdata
+
+EXECUTE sp_executesql @countdata						
