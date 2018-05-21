@@ -29,7 +29,7 @@ echo.
 echo.
 
 REM make changes to the tasks
-schtasks /change /ru %un% /rp %pw% /tn %task1
+schtasks /change /ru %un% /rp %pw% /tn %task1%
 schtasks /change /ru %un% /rp %pw% /tn %task2%
 schtasks /change /ru %un% /rp %pw% /tn %task3%
 schtasks /change /ru %un% /rp %pw% /tn %task4%
