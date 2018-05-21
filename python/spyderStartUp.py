@@ -1,3 +1,7 @@
+# save in same location as temp.py
+# 	C:\Users\<username>\.spyder-py3\spyderStartUp.py
+
+
 
 print('\n\n\t--- Startup script ---')
 # ------------------------------------------------
