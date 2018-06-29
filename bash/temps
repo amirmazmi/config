@@ -1,0 +1,14 @@
+Get temps from sensors command
+
+# command to get output of grep
+sensors | grep -i temp | grep -o '+[0-9.]\+' | sed '1!d; s/+//'
+
+# grep 
+# -i ignore case
+# -o only match
+# '+[0-9.]\+' match plussign+ any numbers with decimal
+
+# sed
+# '1!d' delete everything except first line
+# 's/+//' extract the + sign. s/<str>/<replacement/
+
