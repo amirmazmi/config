@@ -1,0 +1,2 @@
+# to check number of monitors connected
+xrandr | grep ' connected' | wc -l
