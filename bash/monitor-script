@@ -1,18 +1,28 @@
 #!/bin/bash
+#
+#  script to check for connected displays and change if:
+# 	2 monitors connected and one of them is VGA
+#
+# add the following line to .config/lxsession/Lubuntu/autostart
+# @bash <location of file>
+#
+#  *make sure file is executable - chmod
+#
 
-# script to check for connected displays and change if:
-#	2 monitors connected and the second display is VGA
+
+sleep 5
 
 moncount=$(xrandr | grep ' connected' | wc -l )
 
 if [ $moncount -eq 2 ]
 then
 	# echo '2 monitors detected'
-	monname=$(xrandr | grep ' connected' | grep -o '^[A-Z]*-[0-9]*\w'| sed '2!d; s/-1//')
-	if [ "$monname"  == 'VGA' ]
+	monname=$(xrandr | grep ' connected' | grep -o '^[A-Z]*-[0-9]*\w' | sed '2!d; s/-1//')
+	# echo $monname
+	if [ "$monname"  = "VGA" ]
 	then
 		monname+=" detected"
-		# echo $monname
+		echo $monname
 		xrandr --output LVDS-1 --off --output VGA-1-1 --off --output DP-1 --off --output HDMI-1 --off --output VGA-1 --mode 1360x768 --pos 1366x0 --rotate normal
 
 	fi
