@@ -6,7 +6,10 @@
 # add the following line to .config/lxsession/Lubuntu/autostart
 # @bash <location of file>
 #
-#  *make sure file is executable - chmod
+#	*make sure file is executable - chmod
+#
+#	line 26 can be found using arandr
+#
 #
 
 
