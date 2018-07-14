@@ -42,9 +42,9 @@ if [[ $lxterm = "y" ]]
 then
 	echo
 	# back up file
-	sudo mv -vvv ~/.config/lxterminal/lxterminal.conf ~/.config/lxterminal/lxterminal.conf-backup
+	mv -vvv ~/.config/lxterminal/lxterminal.conf ~/.config/lxterminal/lxterminal.conf-backup
 	# copy file in
-	sudo cp -vvvv lxterminal.conf ~/.config/lxterminal/lxterminal.conf
+	cp -vvvv lxterminal.conf ~/.config/lxterminal/lxterminal.conf
 	echo
 fi
 
