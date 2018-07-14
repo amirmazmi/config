@@ -1,6 +1,5 @@
 vim
 chromium-browser
-r
-rstudio
+r-base
 arandr
-sensors
+lm-sensors
