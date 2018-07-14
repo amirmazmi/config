@@ -20,7 +20,7 @@ stmt = r'''
 
 
 # user defined aliases  
-#    alias update='sudo apt update -y;     
+alias update='sudo apt update -y;     
                     printf "\n----------- apt update done\n\n\n";   
                     sudo apt upgrade -y;                             
                     printf "\n----------- apt upgrade done\n\n\n";
