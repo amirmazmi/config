@@ -36,22 +36,30 @@ stmt = r'''
 # change dir
 if (os.getcwd() != os.environ['HOME']) & ( '.bashrc' not in os.listdir()) :
     os.chdir( os.environ['HOME'])
-    print('Changing dir to {}'.format( os.getcwd() ))
+    print('[+] directory changed to {}'.format( os.getcwd() ))
 
+print("[+] Creating backup copy...")    
 # create a copy 
 mkcopy = subprocess.run( ['cp', '-vvv', file_ori, filebackup],
                       stdout=subprocess.PIPE,
                       check=True)
+print( "[!] Copy result: ", mkcopy.stdout.decode('utf-8'))
 
-print( mkcopy.stdout.decode('utf-8'))
- 
+print( "[+] Appending to file...")
 # open file and append alias to end
 with open( file_ori, 'a') as f:
     f.write( stmt)
     f.close()
-
+print("[+] File appended")
+    
+print("[+] Reloading bashrc...")     
 # reload bashrc file
 reloadfile= subprocess.run( ['.', '~/.bashrc'], 
                            stdout=subprocess.PIPE,
                            check=True,
                            shell=True)
+print( "[!] Append result: ",reloadfile.stdout.decode('utf-8'))
+print("\n\n\t### append alias to bashrc complete ### \n\n\n")
+
+      
+      
