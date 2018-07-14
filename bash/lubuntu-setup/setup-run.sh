@@ -26,6 +26,7 @@ then
 	echo "Thats not an option!!!"
 	exit 1
 fi
+echo
 
 # ----------------------------------------------------------------
 # Execute necessary commands
@@ -33,7 +34,7 @@ fi
 # 1. append alias to bashrc - backup previous file
 if [[ $append = "y" ]]
 then
-	lxterminal -e 'bash -c "python3 bashrc-update.py; sleep 10"'
+	nohup lxterminal -e 'bash -c "python3 bashrc-update.py; sleep 10"' &
 fi 
 
 # 2. edit lxterminal.conf - backup previous file
@@ -43,25 +44,20 @@ then
 	# back up file
 	sudo mv -vvv ~/.config/lxterminal/lxterminal.conf ~/.config/lxterminal/lxterminal.conf-backup
 	# copy file in
-	sudo mv -vvvv lxterminal.conf ~/.config/lxterminal/lxterminal.conf
+	sudo cp -vvvv lxterminal.conf ~/.config/lxterminal/lxterminal.conf
 	echo
 fi
 
 if [[ $instpack = "y" ]] 
 then
 	# 3. install linux packages
-	lxterminal -e 'bash -c "xargs -a linux-packages sudo apt install; sleep 10"'
+	nohup lxterminal -e 'bash -c "xargs -a linux-packages sudo apt install; bash"' $ 2>/dev/null
 fi
 
 #   4. edit grub file for fn key
 
-echo
-echo
-sleep 5
-echo
-echo	### DONE! ###
-echo
-echo
-
+printf "\n\n "
+printf "\t\t### DONE! ###"
+printf "\n\n\n"
 exit
 
