@@ -1,0 +1,38 @@
+
+https://askubuntu.com/questions/879881/how-can-i-get-my-grub-menu-to-be-hidden-and-have-the-shift-or-esc-keys-show-the
+
+OK folks, here's the answer... to obtain a hidden GRUB menu in dual-boot configurations... two edits... and a sudo update-grub...
+
+Edit #1
+
+To obtain a hidden GRUB menu in a multi-boot configuration, we first need to edit /etc/default/grub. Open this file using the below command:
+
+sudo editor /etc/default/grub
+Once the file is open, replace these lines
+
+GRUB_HIDDEN_TIMEOUT_QUIET=true
+#GRUB_HIDDEN_TIMEOUT=0
+GRUB_TIMEOUT=10
+with these:
+
+GRUB_HIDDEN_TIMEOUT_QUIET=false
+GRUB_TIMEOUT_STYLE=countdown
+#GRUB_HIDDEN_TIMEOUT=0
+GRUB_TIMEOUT=3
+This will cause GRUB to display a 3 second countdown timer on the screen. By doing this, a user can hit the Esc key to bring up the default menu. Otherwise, the default OS will boot.
+
+If you wish that the default OS should be set to the last-booted OS, add the below two lines under the "GRUB_TIMEOUT=3" shown above:
+
+GRUB_DEFAULT=saved    # change an existing line to this
+GRUB_SAVEDEFAULT=true # add this line
+Edit #2
+
+Next, the OS prober needs to be updated to disable the quickboot feature. To do this, open /etc/grub.d/30_os-prober in your favorite editor and change the below line (line 23 in 17.04) by replacing the 1 with a 0:
+
+quick_boot="1"
+When you're done, the line should read like:
+
+quick_boot="0"
+Save the files and then run the below command to reconfigure the bootloader and to apply your changes:
+
+sudo update-grub
