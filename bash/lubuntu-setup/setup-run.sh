@@ -51,7 +51,7 @@ fi
 if [[ $instpack = "y" ]] 
 then
 	# 3. install linux packages
-	nohup lxterminal -e 'bash -c "xargs -a linux-packages sudo apt install; bash"' $ 2>/dev/null
+	nohup lxterminal -e 'bash -c "xargs -a linux-packages sudo apt install; sleep 20"' $ 2>/dev/null
 fi
 
 #   4. edit grub file for fn key
