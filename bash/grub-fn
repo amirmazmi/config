@@ -3,8 +3,8 @@
 sudo vim /etc/default/grub
 
 # change line 
-
-
-
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+# to below
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash acpi_osi="
 
 
