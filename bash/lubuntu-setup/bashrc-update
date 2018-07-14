@@ -14,7 +14,7 @@ import os
 import subprocess
 # =============================================================================
 file_ori = '.bashrc'
-filebackup = file_ori + '-wawawa'
+filebackup = file_ori + '-backup'
 
 stmt = r'''
 
