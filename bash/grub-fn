@@ -1,0 +1,10 @@
+# how to make Fn keys work 
+
+sudo vim /etc/default/grub
+
+# change line 
+
+
+
+
+
