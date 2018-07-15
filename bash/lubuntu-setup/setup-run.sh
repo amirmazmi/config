@@ -72,6 +72,8 @@ then
 	mv -vvv ~/.config/openbox/lubuntu-rc.xml ~/.config/openbox/lubuntu-rc.xml-backup
 	# copy file in 
 	cp -vvv lubuntu-rc.xml ~/.config/openbox/lubuntu-rc.xml
+	# relaunch
+	openbox --reconfigure
 	echo
 fi
 
