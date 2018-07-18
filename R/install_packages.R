@@ -8,6 +8,7 @@
 
 
 x <- c(
+    "devtools",
     "TTR",
     "swirl",
     "forecast",
