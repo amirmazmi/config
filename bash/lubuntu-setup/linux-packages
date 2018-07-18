@@ -3,3 +3,5 @@ chromium-browser
 r-base
 arandr
 lm-sensors
+exfat-fuse 
+exfat-utils
