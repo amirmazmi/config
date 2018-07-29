@@ -9,3 +9,5 @@ build-essential
 libcurl4-gnutls-dev 
 libxml2-dev 
 libssl-dev
+speedtest-cli
+htop
