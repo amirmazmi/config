@@ -11,3 +11,4 @@ libxml2-dev
 libssl-dev
 speedtest-cli
 htop
+python3-pip
