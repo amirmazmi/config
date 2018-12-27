@@ -1,0 +1,92 @@
+#! /bin/bash
+
+# ONLY EDIT IN NOTEPAD++ and change end-of-line char to unix
+# Edit > EOL conversion > UNIX
+
+# usage
+# ./vmconnect <start or stop> <ip address>
+
+
+#define user here
+USER=user1
+
+
+# read arguments
+if [ "$1" = "startvnc" ] ; then
+	ACTION="startvnc"
+elif [ "$1" = "stopvnc" ] ; then
+	ACTION="stopvnc"
+# compare if first positional argument is numeric
+elif [ "$1" == "" ] || [[ "$1" =~ ^[0-9] ]] ; then
+	read -rp $'Please choose startvnc or stopvnc: ' ACTION
+fi
+
+echo
+
+
+# check for ip if not provided
+if [ "$2" == "" ] ; then
+	read -rp $'  Please enter the host ip: ' ADDR
+elif [ "$2" != "" ] ; then
+	ADDR=$2
+fi
+
+
+## CANNOT SEND PASSWORD TO TTY
+# prompt for password
+# stty -echo
+# read -rsp $'  Please enter your password: ' PWORD 
+# stty echo
+
+
+
+echo $ACTION
+
+
+# ------------------ startvnc and establish tunnel
+if [ "$ACTION" = "startvnc" ] ; then
+	echo -e "\n\n\t###### Starting VNC server ######\n"
+	ssh $USER@$ADDR 'vncserver :1; sleep 1; vncserver -list;'
+	
+	sleep 0.5
+	
+	echo -e "\n\n[+] VNC server started, connecting tunnel\n"
+	ssh -L 5901:127.0.0.1:5901 $USER@$ADDR -N -f
+	echo -e "\n[+] Tunnel established, ready to connect\n"
+fi
+
+
+# ------------------ stopvnc and stop tunnel
+if [ "$ACTION" = "stopvnc" ] ; then
+	echo -e "\n\n\t###### Closing VNC server ######\n"
+	ssh $USER@$ADDR "vncserver -list; 
+		sleep 1;
+		echo -e '\n';
+		vncserver -kill :1;
+		sleep 0.5; echo -e '\n';
+		vncserver -list"
+	sleep 0.5
+	
+	echo 
+	# kill pid for ssh tunnels
+	RAY=$( ps | grep ssh | awk '{print $1}' | sed 'N;N;s/\n/ /g')
+	echo -e "List of PIDs -" $RAY 
+
+	# loop to kill all ssh processes
+	for PID in $RAY
+	do
+		#echo $PID
+		kill $PID
+		sleep 0.5
+	done
+		
+fi
+
+PWORD="********************************"
+
+echo -e "\n\n\n\t###### VNC-SSH script complete ######\n\n "
+	
+	
+	
+
+
