@@ -1,0 +1,18 @@
+# How to kill all inbound SSH connections
+# https://www.quora.com/Is-there-a-way-to-terminate-all-active-inbound-SSH-connections
+
+# find all active connections
+pgrep -af sshd
+    OR
+ps faux | grep sshd
+    OR
+netstat -tpna | grep "ESTABLISHED.*sshd"
+
+# also possible to check all logged in users
+who
+    
+# kill it
+pkill --signal HUP sshd
+
+
+
