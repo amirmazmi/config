@@ -12,3 +12,5 @@ libssl-dev
 speedtest-cli
 htop
 python3-pip
+wavemon
+nload
