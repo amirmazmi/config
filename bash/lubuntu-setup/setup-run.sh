@@ -5,7 +5,8 @@
 #   2. edit lxterminal.conf - backup previous file
 #   3. install linux packages
 #   4. edit lubuntu-rc.xml for shortcuts
-#   5. edit grub file for fn key
+#   5. for 18.10 need to add dns to /etc/NetworkManager/NetworkManager.conf - TODO!!!!
+#   6. edit grub file for fn key
 
 # get user inputs 
 read -p "	Append update alias to bashrc? (y/n)  " append
