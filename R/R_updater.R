@@ -5,8 +5,6 @@
 #
 # installr is only for windows - https://github.com/talgalili/installr/issues/88
 
-
-
 # Use pacman to manage packages
 if(!require(pacman)) {
     install.packages("pacman"); require(pacman)
@@ -29,6 +27,18 @@ if (check.for.updates.R()){
 }
 
 ## Restart Rstudio ##
+
+
+### --- Linux --- ###
+
+# Need to add the repo to apt source list
+# 1. Add public key -> sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
+# 2. Go to /etc/apt/sources.list and add the relevant lines
+    ## 18.04
+    # deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/
+    ## 16.04
+    # deb https://cloud.r-project.org/bin/linux/ubuntu xenial-cran35/
+# 3. run apt-update 
 
 
 
@@ -59,7 +69,7 @@ Sys.getenv("R_LIBS_USER")
 # Best way
 # ---------------------------------
 
-# --- WINDOWS ---
+### --- WINDOWS --- ###
 # Based on: 
 # https://stackoverflow.com/questions/15170399/changing-r-default-library-path-using-libpaths-in-rprofile-site-fails-to-work
 
@@ -79,7 +89,7 @@ file.edit(".Renviron")
 # R_LIBS_USER=C:/Program Files/R/library
 
 
-# --- Linux ---
+#### --- Linux ---###
 # file is REnviron
 # alternatively, add your user to the default R group called "staff":
 #       sudo adduser <user> staff
