@@ -3,6 +3,7 @@
 #  script to check for connected displays and change if:
 # 	2 monitors connected and one of them is VGA
 #
+#----------------------------------------------------------------
 # add the following line to .config/lxsession/Lubuntu/autostart
 # @bash <location of file>
 #
@@ -10,7 +11,9 @@
 #
 #	line 26 can be found using arandr
 #
-#
+#----------------------------------------------------------------
+# through ssh - run 'export DISPLAY=:0' before running xrandr
+#----------------------------------------------------------------
 
 
 sleep 5
