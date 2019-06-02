@@ -21,7 +21,9 @@ Format the file as swap:
 
 Enable use of Swap File  
 `sudo swapon /mnt/1GiB.swap`  
-The additional swap is now available and verified with: cat /proc/swaps  
+
+The additional swap is now available and verified with:  
+`cat /proc/swaps`  
 
 Enable Swap File at Bootup  
 Add the swap file details to /etc/fstab so it will be available at bootup:  
