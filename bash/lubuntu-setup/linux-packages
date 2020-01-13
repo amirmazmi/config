@@ -14,3 +14,6 @@ htop
 python3-pip
 wavemon
 nload
+curl
+net-tools
+pmount
