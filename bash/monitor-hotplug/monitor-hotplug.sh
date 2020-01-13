@@ -47,6 +47,8 @@ echo
 	
 	# these should really check xrandr outputs first
 	# xrandr -d :0
+	# should just enable the device that is connected - store from loop above
+	# 	since it may have more than the 3 hard coded here
 
 	if [ ! -z "$HDMI1" -a ! -z "$VGA1" ]; then
 	  echo "HDMI1 and VGA-1 are plugged in"
