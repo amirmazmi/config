@@ -30,8 +30,10 @@ alias update='sudo apt update -y;
                     printf "\n\n\t###### DONE ######\n\n\n" '
                     
 # screengrab
-alias screengrab='cd ~/Desktop; 
-                        echo -e "\n" && scrot -ucd 5 && echo -e "\n" '
+alias screengrab='CURRDIRR=$(pwd);
+                        cd ~/Desktop; 
+                        echo -e "\n" && scrot -ucd 5 && echo -e "\n";
+                        cd $CURRDIRR '
 
                     
 '''
