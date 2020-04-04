@@ -89,21 +89,27 @@ file.edit(".Renviron")
 # R_LIBS_USER=C:/Program Files/R/library
 
 
-#### --- Linux ---###
-# file is REnviron
-# alternatively, add your user to the default R group called "staff":
-#       sudo adduser <user> staff
-# then make sure all .libPaths folders have permissions for group to write in those folders:
-#       sudo chmod -R g+w library/
-#       sudo chmod -R g+w site-library/
 
+#### Alternative method
 
-# ---------------------------------
-# Alternative method
-# ---------------------------------
 # this is changing the default Rprofile file which will be carried over to all future scripts
 # edit C:\Program Files\R\R-3.4.0\etc\Rprofile.site
 # my custom library path
 #.libPaths=("C:/Program Files/R/library")
 
 
+
+#### --- Linux ---###
+# file is REnviron
+# alternatively, add your user to the default R group called "staff":
+#       sudo adduser <user> staff
+
+# Ideally, .libPaths have the following order:
+#   "/usr/local/lib/R/site-library"
+#   "/usr/lib/R/site-library"
+#   "/usr/lib/R/library" 
+
+# The first folder above would already have staff as the group otherwise,
+# make sure all .libPaths folders have permissions for group to write in those folders:
+#       sudo chmod -R g+w library/
+#       sudo chmod -R g+w site-library/
