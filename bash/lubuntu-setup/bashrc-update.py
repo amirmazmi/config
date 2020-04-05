@@ -32,8 +32,11 @@ alias update='sudo apt update -y;
 # screengrab
 alias screengrab='CURRDIRR=$(pwd);
                         cd ~/Desktop; 
-                        echo -e "\n" && scrot -ucd 5 && echo -e "\n";
-                        eval cd "$CURRDIRR" '
+                        echo -e "\n $CURRDIRR \n" && scrot -ucd 5 ; 
+                        printf "\n\n" ;
+                        eval cd "$CURRDIRR"; 
+                        printf "\n" '
+
 
                     
 '''
