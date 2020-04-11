@@ -3,7 +3,8 @@
 
 https://www.x.org/archive/X11R7.5/doc/man/man4/synaptics.4.html
 
-# start from ~/.config/lxsession/Lubuntu/autostart
+# just add path to file to ~/.config/lxsession/Lubuntu/autostart
+
 
 #Touchpad setting commnads:
 xinput list
