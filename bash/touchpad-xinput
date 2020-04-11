@@ -24,20 +24,47 @@ xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Edge Scrolling" 0 0 0
 #!/bin/bash
 # start from ~/.config/lxsession/Lubuntu/autostart
 
-#Config touchpad to disable Edge Scrolling and reduce sensitivity
+# Adjust touchpad configs using xinput
+
+
+### Disable edge scrolling ###
 xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Edge Scrolling" 0 0 0
 
-result=$?
-if [ $result -eq 0 ]; then 
-	xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Finger" 35 50 40
-else
+# check if disabling edge scrolling was successful
+resultEDGE=$?
+if [ $resultEDGE -ne 0 ]; then 
 	echo "FAIL - Disable Edge Scrolling"
-	xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Finger" 35 50 40
 fi
 
-result=$?
-if [ $result -ne 0 ]; then 
+
+### Adjust touchpad sensitivity ###
+xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Finger" 35 50 40
+
+# check if sensitivity adjustments was successful
+resultTOUCH=$?
+if [ $resultTOUCH -ne 0 ]; then 
 	echo "FAIL - Reduce sensitivity"
 fi
+
+
+### Enable palm detection ###
+xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Palm Detection" 1
+
+# check if successful
+resultPALM=$?
+if [ $resultPALM -ne 0 ]; then 
+	echo "FAIL - Enable palm detection"
+fi
+
+
+### Set palm sensitivity - min width and pressure ###
+xinput set-prop "ELAN1401:00 04F3:30DC Touchpad" "Synaptics Palm Dimensions"  4, 50
+
+# check if successful
+resultPALMSENS=$?
+if [ $resultPALMSENS -ne 0 ]; then 
+	echo "FAIL - Adjust palm sensitivity"
+fi
+
 
 #################################
