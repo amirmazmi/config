@@ -1,8 +1,10 @@
 
 
+#### Passwords may be cached by gpg agent - create ~/.gnupg/gpg-agent.conf with the following options
+
 
 #### To encrypt a directory into archive.gpg using a passphrase:
-```gpg-zip --symmetric --output <archive.gpg> <path/to/directory>```
+```gpg-zip --symmetric --gpg-args '--cipher-algo TWOFISH' --output <filename.gpg> <path/to/directory>```
 <br><br> 
  
 #### To decrypt archive.gpg into a directory of the same name:
