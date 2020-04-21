@@ -1,6 +1,6 @@
 
 
-#### Passwords may be cached by gpg agent - create ~/.gnupg/gpg-agent.conf with the following options
+#### Passwords may be cached by gpg agent. Can avoid this by creating ~/.gnupg/gpg-agent.conf with the following options
 ```
 default-cache-ttl 1
 max-cache-ttl 1
