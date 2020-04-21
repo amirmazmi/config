@@ -1,7 +1,11 @@
 
 
 #### Passwords may be cached by gpg agent - create ~/.gnupg/gpg-agent.conf with the following options
-
+```
+default-cache-ttl 1
+max-cache-ttl 1
+```
+<br><br>
 
 #### To encrypt a directory into archive.gpg using a passphrase:
 ```gpg-zip --symmetric --gpg-args '--cipher-algo TWOFISH' --output <filename.gpg> <path/to/directory>```
