@@ -27,6 +27,13 @@ echo -e "\n\t UFW: Applying rule - VNC\n"
 sudo ufw limit in from 192.168.1.0/24 to any port 5901
 sudo ufw limit in from 192.168.1.0/24 to any port 5902
 
+echo -e "\n\t UFW: Applying rule - block SMB (double pulsar)\n"
+sudo ufw deny 137
+sudo ufw deny 139
+sudo ufw deny 445
+
+sudo ufw reload
+
 echo -e "\n\t UFW: Displaying rules\n"
 sudo ufw status verbose
 
