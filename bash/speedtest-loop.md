@@ -1,6 +1,7 @@
 ## Final form
 ```
-echo -e "\n\t\t####### SPEEDTEST ####### \n" && (speedtest --csv-header --bytes | sed 's/Share,//g' && for (( k=1;k<=2;k++)); do speedtest --csv --bytes --server 1701 ; done) | column -t -s,
+echo -e "\n\t\t####### SPEEDTEST ####### \n" && (speedtest --csv-header --bytes | sed 's/Share,//g' &&
+for (( k=1;k<=2;k++)); do speedtest --csv --bytes --server 1701 ; done) | column -t -s, && echo -e "\n"
 ```
 
 
@@ -20,7 +21,6 @@ or
 ```  
 speedtest --list | sed -n 2,40p  
 ```
-
 ```
 speedtest --list | sed -n 2,100p | grep Indonesia
 ```
