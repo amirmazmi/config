@@ -31,14 +31,19 @@ alias update='sudo apt update -y;
                     
 # screengrab
 alias screengrab='CURRDIRR=$(pwd);
-                        cd ~/Desktop; 
-                        echo -e "\n $CURRDIRR \n" && scrot -ucd 5 ; 
-                        printf "\n\n" ;
-                        eval cd "$CURRDIRR"; 
-                        printf "\n" '
+                    cd ~/Desktop; 
+                    echo -e "\n $CURRDIRR \n" && scrot -ucd 5 ; 
+                    printf "\n\n" ;
+                    eval cd "$CURRDIRR"; 
+                    printf "\n" '
+
+# speedtest cli
+alias testmynet='SPEEDTEST_TARG_SERVER=$(speedtest --list | head -n90 | grep Indonesia | awk '{ print $1 }' | sed 's/)//' | sed -n 2p );
+                    echo -e "\n\t\t####### SPEEDTEST ####### \n" && (speedtest --csv-header --bytes | sed 's/Share,//g' &&
+                    for (( k=1;k<=2;k++)); do speedtest --csv --bytes --server $SPEEDTEST_TARG ; done) | column -t -s, && echo -e "\n"
 
 
-                    
+
 '''
 
 # =============================================================================
