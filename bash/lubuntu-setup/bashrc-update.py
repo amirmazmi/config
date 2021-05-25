@@ -42,7 +42,7 @@ alias screengrab='CURRDIRR=$(pwd);
 run_speedtest() {
         SPEEDTEST_TARG_SERVER=$( speedtest --list | head -n90 | grep Indonesia | awk '{ print $1 }' | sed 's/)//' | sed -n 2p ) ;
         echo -e '\n\t\t####### SPEEDTEST ####### \n' ;
-        TEMP=$( speedtest --csv-header --bytes | sed 's/Share,//' | sed 's/ /_/g' && (for (( k=1;k<=${1:-2};k++)); do speedtest --csv --bytes --server $SPEEDTEST_TARG_SERVER | sed 's/ /_/g'; done));
+        TEMP=$( speedtest --csv-header --bytes | sed 's/Share,//' | sed 's/ /_/g' && (for (( k=1;k<=${1:-3};k++)); do speedtest --csv --bytes --server $SPEEDTEST_TARG_SERVER | sed 's/ /_/g'; done));
         echo $TEMP | sed 's/ /\n/g' | column -t -s, ;
         echo -e '\n'
 }
