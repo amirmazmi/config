@@ -8,7 +8,8 @@ execute this in the virtualenv AFTER installing tensorflow-gpu
 ### check physical devices
 ```  
 import tensorflow as tf
-tf.config.list_physical_devices('gpu')'
+tf.config.list_physical_devices('gpu')
+tf.test.gpu_device_name()
 ```
 
 <br>  
