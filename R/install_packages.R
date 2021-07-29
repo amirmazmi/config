@@ -33,6 +33,8 @@ x <- c(
     "pacman",
     "ranger",
     "timetk",   # formerly known as timekit
+    "knitr",
+    "tinytex"   # need to run this to complete installation -> tinytex::install_tinytex()
 )
 
 install.packages(x)
