@@ -4,8 +4,8 @@
 # 	2 monitors connected
 #
 #----------------------------------------------------------------
-# add the following line to /.profile
-# @bash <location of file>
+# add the following line to /.profile (will run on login)
+# bash <location of file>
 #
 
 
