@@ -73,7 +73,7 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
         f.write(info.encode())
         f.write(("<br><a href=\"%s\">back</a>" % self.headers['referer']).encode())
         f.write(b"<hr><small>Adapted by irocto, check new version at ")
-        f.write(b"<a href=\"https://github.com/amirmazmi/config/blob/master/python/httpMultUpload.py>")
+        f.write(b"<a href=\"https://github.com/amirmazmi/config/blob/master/python/httpMultUpload.py\">")
         f.write(b"here</a>.</small></body>\n</html>\n")
         length = f.tell()
         f.seek(0)
@@ -213,7 +213,10 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
             f.write(('<li><a href="%s">%s</a>\n'
                     #% (urllib.parse.quote(linkname), cgi.escape(displayname))).encode())
                     % (urllib.parse.quote(linkname), html.escape(displayname))).encode())
-        f.write(b"</ul>\n<hr>\n</body>\n</html>\n")
+        f.write(b"</ul>\n")
+        f.write(b"<hr><small>Adapted by amirmazmi, check new version at ")
+        f.write(b"<a href=\"https://github.com/amirmazmi/config/blob/master/python/httpMultUpload.py\">")
+        f.write(b"here</a>.</small></body>\n</html>\n")
         length = f.tell()
         f.seek(0)
         self.send_response(200)
@@ -295,8 +298,7 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
         })
 
 
-def test(HandlerClass = SimpleHTTPRequestHandler,
-         ServerClass = http.server.HTTPServer):
+def test(HandlerClass = SimpleHTTPRequestHandler, ServerClass = http.server.HTTPServer):
     http.server.test(HandlerClass, ServerClass)
 
 if __name__ == '__main__':
