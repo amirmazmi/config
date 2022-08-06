@@ -72,7 +72,7 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
             f.write(b"<strong>Failed:</strong>")
         f.write(info.encode())
         f.write(("<br><a href=\"%s\">back</a>" % self.headers['referer']).encode())
-        f.write(b"<hr><small>Adapted by irocto, check new version at ")
+        f.write(b"<hr><small>Adapted by amirmazmi, check new version at ")
         f.write(b"<a href=\"https://github.com/amirmazmi/config/blob/master/python/httpMultUpload.py\">")
         f.write(b"here</a>.</small></body>\n</html>\n")
         length = f.tell()
