@@ -20,7 +20,6 @@ import os
 import posixpath
 import http.server
 import urllib.request, urllib.parse, urllib.error
-#import cgi
 import html
 import shutil
 import mimetypes
@@ -63,7 +62,8 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
         print((r, info, "by: ", self.client_address))
         f = BytesIO()
         f.write(b'<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">')
-        f.write(b"<html>\n<title>Upload Result Page</title>\n")
+        f.write(b'<html>\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n')
+        f.write("<title>Upload Result Page</title>\n")
         f.write(b"<body>\n<h2>Upload Result Page</h2>\n")
         f.write(b"<hr>\n")
         if r:
@@ -100,6 +100,7 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
             line = self.rfile.readline()
             remainbytes -= len(line)
             fn = re.findall(r'Content-Disposition.*name="file"; filename="(.*)"', line.decode())
+            print(fn)
             if not fn or len(fn[0]) == 0:
                 return (False, "Can't find out file name...")
             path = self.translate_path(self.path)
@@ -190,10 +191,10 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
             return None
         list.sort(key=lambda a: a.lower())
         f = BytesIO()
-        #displaypath = cgi.escape(urllib.parse.unquote(self.path))
         displaypath = html.escape(urllib.parse.unquote(self.path))
         f.write(b'<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">')
-        f.write(("<html>\n<title>Directory listing for %s</title>\n" % displaypath).encode())
+        f.write(b'<html>\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n')
+        f.write(("<title>Directory listing for %s</title>\n" % displaypath).encode())
         f.write(("<body>\n<h2>Directory listing for %s</h2>\n" % displaypath).encode())
         f.write(b"<hr>\n")
         f.write(b"<form ENCTYPE=\"multipart/form-data\" method=\"post\">")
@@ -211,7 +212,6 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
                 displayname = name + "@"
                 # Note: a link to a directory displays with @ and links with /
             f.write(('<li><a href="%s">%s</a>\n'
-                    #% (urllib.parse.quote(linkname), cgi.escape(displayname))).encode())
                     % (urllib.parse.quote(linkname), html.escape(displayname))).encode())
         f.write(b"</ul>\n")
         f.write(b"<hr><small>Adapted by amirmazmi, check new version at ")
