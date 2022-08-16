@@ -63,7 +63,7 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
         f = BytesIO()
         f.write(b'<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">')
         f.write(b'<html>\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n')
-        f.write("<title>Upload Result Page</title>\n")
+        f.write(b"<title>Upload Result Page</title>\n")
         f.write(b"<body>\n<h2>Upload Result Page</h2>\n")
         f.write(b"<hr>\n")
         if r:
