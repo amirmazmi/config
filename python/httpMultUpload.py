@@ -16,6 +16,7 @@ __all__ = ["SimpleHTTPRequestHandler"]
 __author__ = "bones7456"
 __home_page__ = "http://li2z.cn/"
 
+import argparse
 import os
 import posixpath
 import http.server
@@ -298,8 +299,14 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
         })
 
 
-def test(HandlerClass = SimpleHTTPRequestHandler, ServerClass = http.server.HTTPServer):
-    http.server.test(HandlerClass, ServerClass)
+def test(HandlerClass = SimpleHTTPRequestHandler, ServerClass = http.server.HTTPServer, serve_port=8000):
+    http.server.test(HandlerClass, ServerClass, port=serve_port)
 
 if __name__ == '__main__':
-    test()
+    parser = argparse.ArgumentParser()
+    parser.add_argument('port', action='store',
+                        default=8000, type=int,
+                        nargs='?',
+                        help='Specify alternate port [default: 8000]')
+    args = parser.parse_args()
+    test(serve_port=args.port)
