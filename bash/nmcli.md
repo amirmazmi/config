@@ -13,9 +13,9 @@ nmcli connection show
 
 Get UUID
 ```
-CONNUUID="nmcli connection show | sed -n '2p' | awk '{print $2}'"
+CONNUUID=$(nmcli connection show | sed -n '2p' | awk '{print $2}')
 # OR
-CONNUUID="nmcli connection show | grep <connection-name> | awk '{print $2}'"
+CONNUUID=$(nmcli connection show | grep <connection-name> | awk '{print $2}')
 ```
 
 <br>
