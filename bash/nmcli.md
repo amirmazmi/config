@@ -25,6 +25,6 @@ Set static IP
 sudo nmcli connection modify $CONNUUID IPv4.address $IP/$sz   # set static IP
 sudo nmcli connection modify $CONNUUID IPv4.gateway $router   # set path to router
 sudo nmcli connection modify $CONNUUID IPv4.method manual     # change to static
-sudo nmcli connection down $CONNUUID      # down up to apply
-sudo nmcli connection up $CONNUUID
+# down up to apply
+sudo nmcli connection down $CONNUUID && sudo nmcli connection up $CONNUUID
 ```
