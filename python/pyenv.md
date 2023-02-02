@@ -2,9 +2,6 @@
 
 Guide - https://realpython.com/intro-to-pyenv/
 
-
-
-
 <br>
 
 # Auto init
@@ -20,7 +17,9 @@ export PYENV_ROOT="$HOME/.pyenv"
 
 <br>
 
-# Commands  
+---  
+
+### **Commands**
 
 list all available  
 &emsp; `pyenv install --list`
@@ -34,10 +33,10 @@ create virtualenv using specific version
 &emsp; `pyenv virtualenv <python_version> <environment_name>`
   
   
-activate environment  
+activate environment - this will create `.python-version` which contains the environment name (since the environment no longer is in the project folder)  
 &emsp; `pyenv local <environment_name>`  
 &emsp;&emsp;&emsp; or  
-&emsp; `pyenv activate <environment_name>`
+&emsp; `pyenv activate <environment_name>`  
 
 
 deactivate  
