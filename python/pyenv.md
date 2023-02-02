@@ -27,4 +27,21 @@ list all available
 install 
 `pyenv install 3.9.16`
 
+create virtualenv using specific version
+`pyenv virtualenv <python_version> <environment_name>`
+
+activate environment
+`pyenv local <environment_name>`
+ or
+`pyenv activate <environment_name>`
+
+deactivate
+`pyenv deactivate`
+
+
+
+<br><br>
+
+
+
 
