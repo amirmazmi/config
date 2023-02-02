@@ -20,23 +20,28 @@ export PYENV_ROOT="$HOME/.pyenv"
 
 <br>
 
-# Commands
-list all available 
-`pyenv install --list`
+# Commands  
 
-install 
-`pyenv install 3.9.16`
+list all available  
+&emsp; `pyenv install --list`
 
-create virtualenv using specific version
-`pyenv virtualenv <python_version> <environment_name>`
 
-activate environment
-`pyenv local <environment_name>`
- or
-`pyenv activate <environment_name>`
+install  
+&emsp; `pyenv install 3.9.16`
+  
+  
+create virtualenv using specific version  
+&emsp; `pyenv virtualenv <python_version> <environment_name>`
+  
+  
+activate environment  
+&emsp; `pyenv local <environment_name>`  
+&emsp;&emsp;&emsp; or  
+&emsp; `pyenv activate <environment_name>`
 
-deactivate
-`pyenv deactivate`
+
+deactivate  
+&emsp; `pyenv deactivate`
 
 
 
