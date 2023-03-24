@@ -13,6 +13,7 @@
 #     python3 html_to_ipynb.py <file.html>
 #
 #-------------------------------------------------------------------------------
+
 import json
 from lxml import etree, html
 from argparse import ArgumentParser
@@ -23,7 +24,7 @@ args = parser.parse_args()
 
 
 HTML_INFILE = args.file         #'02-Modeling-Returns.html'
-IPYNB_OUTFILE = f'{HTML_INFILE[:-5]}-parsed.ipynb'
+IPYNB_OUTFILE = f'{HTML_INFILE[:-5]}-parsed1.ipynb'
 
 create_nb = {'nbformat': 4, 'nbformat_minor': 2, 'cells': [],
               'metadata':
@@ -36,23 +37,41 @@ create_nb = {'nbformat': 4, 'nbformat_minor': 2, 'cells': [],
 def parse_data(dom):
     print("[+]Parsing data...\n")
     # get cells
-    for row in dom.xpath("//div[contains(@class, 'jp-Notebook-cell')]"):
-        cell = {}
-        cell['metadata'] = {}
-        #print(row.values())
+    for enum,row in enumerate(dom.xpath("//div[contains(@class, 'jp-Notebook-cell')]")):
+        cell = {}; cell['metadata'] = {}; ls_innertext = []
 
+        # markdown
         if 'jp-MarkdownCell' in row.values()[0]:
             cell['cell_type'] = 'markdown'
-            ls_md_text = [k for k in row.xpath(".//div[contains(@class,'jp-RenderedMarkdown')]")[0].itertext()]
-            #print(ls_md_text)
-            cell['source'] = [''.join(ls_md_text)]
-            #print(cell['source'])
+            for k in row.xpath(".//div[contains(@class,'jp-RenderedMarkdown')]")[0].iterchildren():
+                ls_content = [item1.replace("\n","  \n") for item1 in k.itertext()]
+                if k.tail is not None:
+                    ls_content += [ "  \n" + k.tail]
+
+                # table of content
+                if "class" in k.attrib.keys() and k.attrib['class'] == "toc":
+                    ls_md_text = ''.join([ f"  \n\t{j}" if j.replace('\xa0\xa0','').replace('.','').isdigit() else j for j in ls_content])
+                else:
+                    ls_md_text = ''.join(ls_content)
+
+                # if header
+                if k.tag[0] == "h" and str.isdigit(k.tag[1]) and k.text is not None:
+                    ls_md_text = "#" * int(k.tag[1]) + " " + k.text
+                    ls_innertext.append(ls_md_text)
+                elif len(ls_md_text):
+                    ls_innertext.append("  \n  \n" + ls_md_text)
+
+            cell['source'] = []
+            if len(ls_innertext):
+                cell['source'] = ls_innertext #[''.join(ls_innertext)]
+
+        # if code
         if 'jp-CodeCell' in row.values()[0]:
-            for snippet in row.xpath(".//pre"):
-                code_str = ''.join([k for k in snippet.itertext()])
+            cell['cell_type'] = 'code'
             cell['outputs'] = []
             cell['execution_count'] = None
-            cell['cell_type'] = 'code'
+            for snippet in row.xpath(".//div[contains(@class, 'jp-Cell-inputWrapper')]//pre"):
+                code_str = ''.join([snip for snip in snippet.itertext()])
             cell['source'] = [code_str]
 
         create_nb['cells'].append(cell)
