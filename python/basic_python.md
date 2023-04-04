@@ -1,13 +1,15 @@
 ## Preamble
 
-1. There are many ways to do one thing. While people will tell you better ways, there is no right or wrong, only efficient or inefficient, ultimately it is about what works for you or fits your use case. As well as what you can understand.
+There are many ways to do one thing. While people will tell you better ways, there is no right or wrong, perhaps efficient or inefficient, ultimately it is about what works for you or fits your use case. As well as what you can understand.
+
+Below are some notes that address the environments around python rather than programming in python itself. 
 
 
 <br>
 
 ## 1. Terminal
 
-> Also called shell or command line interface (CLI)
+> Also called shell or command line interface (CLI)  
 
 Use of terminal is basic for managing python, including creating and managing virtual environments, installing packages using `pip` or `conda` running jupyter notebooks, even executing python scripts.
 
@@ -33,11 +35,11 @@ Terminal usually operates on the present working directory, similar to using a f
 <br>
 
 ### 1.2 Python scripts
-Python scripts are scripts that have been created and can run by itself. These are simply *text files* with a `.py` extension to indicate it is a python file. In some terminals, the file can also have a `.txt` extension or even no extension at all and will still execute/run.
+Python scripts are scripts that have been created and can run by itself or are a collection of functions. These are simply *text files* with a `.py` extension to indicate it is a python file. In some terminals, the file can also have a `.txt` extension or even no extension at all and will still execute/run.
 
 
 Example:
-> open a text editor, copy paste the content below and save it as `hello.py`
+> open a text editor, copy paste the content below and save it as `hello.py`  
 > `print("Hello world")`
 
 
@@ -46,9 +48,9 @@ Execute in terminal
 
 So attempting to execute hello.py would not work (since the terminal cannot see the file, check using `dir`). From here, navigate to the desired folder/directory using the `cd` command. The easiest way is to copy the location from a file explorer
 
-e.g.
-`cd <desired folder>`
-`cd C:/User/user/Desktop/scripts`
+e.g.  
+`cd <desired folder>`  
+`cd C:/User/user/Desktop/scripts`  
 
 Next run `dir` and if `hello.py` is listed, then the terminal can "see" the file. Executing `python hello.py` will print `hello`.
 
@@ -59,8 +61,8 @@ Next run `dir` and if `hello.py` is listed, then the terminal can "see" the file
 
 ### 3.1 REPL
 Python can be invoked from the terminal to open the python shell or REPL (Read-Eval-Print-Loop). Simply type `python` in a terminal. Commands that can be run in a script can also be run in the REPL. This is a good way to do super simple tests or check basic syntax.
-
-
+  
+  
 https://realpython.com/python-repl/
 
 
@@ -68,14 +70,14 @@ https://realpython.com/python-repl/
 <br>
 
 ### 3.2 Working directory
-Similarly, Python operates on the same principle that it can only "see" the current directory. This will be the directory where python was invoked from the terminal.
+Similarly, Python operates on the same principle that it can only "see" the current directory. This will be the directory where python was invoked from the terminal or where jupyter notebook was launched. 
 
 e.g.
-> `C:/User/user/Desktop/scripts> python`
+> `C:/User/user/Desktop/scripts> python`  
 
 Therefore the working directory will be `C:/User/user/Desktop/scripts`. This can be confirmed by running the following commands in the python terminal.
 ```
-import os
+import os  
 os.getcwd()     # get current working directory
 ```
 
@@ -90,12 +92,17 @@ To change directory in python, use `os.chdir(<directory>)`
 In python imports are use to:
  1. import packages
  2. import scripts or modules that have been created
-
+  
+  
 In most cases, you would already be familiar with `import numpy` but there will be times you would have created your own modules or collated your own functions (such as the black scholes class).
+  
+<br>  
 
 We have to note:
  1. the filename - `BlackScholes.py`
- 2. the function or class name `BS`
+ 2. the function or class name `BS`  
+  
+<br>  
 
 For the `BlackScholes.py` example, there are several ways to import.
  1. `from BlackScholes import BS` (from filename import function/class)
@@ -104,8 +111,12 @@ For the `BlackScholes.py` example, there are several ways to import.
      - import and rename (reduce typing effort)
  3. `from BlackScholes import *`
      - just import everything in this file e.g. other functions as well, if there was any
+  
+<br>
 
 Again, here python must be able to "see" or be in the same directory as the `.py` file we would like to import. At the very least, it has to be a subfolder in the present directory, such as a folder called `src`.
+  
+<br>
 
 To import:
  1. `from src.BlackScholes import BS`
@@ -128,13 +139,16 @@ Then your namespace will contain a symbolic reference `x` to indicate the variab
 
  1. `from src.BlackScholes import BS` - loaded as `BS`
  2. `import src.BlackScholes.BS as BSfunc` - loaded as `BSfunc`
- 3. `from src.BlackScholes import *` - loaded as defind the file
+ 3. `from src.BlackScholes import *` - loaded as defined the file
+  
+<br>  
 
 There are several levels in namespace
 1. Built-in - print, while, if
 2. Global - any defined outside of a function i.e. `x=3` (acccessible in any functions)
 3. Local - any defined *inside* of a function (not accessible globally)
-
+  
+  
 Be careful not to override the built in functions as it will cause errors when running your code.
 
 ```
@@ -162,6 +176,8 @@ Python has several built in data types:
  - float
  - string
 
+<br>
+
 It is important to understand the basic types as all other packagees will depend on these types. There are how infomation is passed back and forth.
 
 Example:
@@ -175,10 +191,11 @@ As you can see, the input are list or list of lists.
 Python has no JSON/YAML data type, in most cases it will be converted to a dictionary (or list of dictionaries).
 
 
+
 <br>
 
 ### 3.6 Object oriented
-In most cases, python packages are object oriented.
+In most cases, python packages are object oriented. This is a programming paradigm called object-oriented programming. 
 
 Example: `df = pd.DataFrame()` means the object is a pandas class object.
 
@@ -189,16 +206,18 @@ Example: `df = pd.DataFrame()` means the object is a pandas class object.
 # output: 'Hella warld'
 ```
 
-You would have seen this BS.callprice
+You would have seen this in `BS.callprice`
 
-https://www.w3schools.com/python/python_classes.asp
+<br>
+
+Python Classes https://www.w3schools.com/python/python_classes.asp
 
 
 ### 3.7 Gotchas
 
 The numbers that you see may not be how it is stored. This is true for any programming language as it is inherent with how computers work.
 > Floating-point numbers are represented in computer hardware as base 2 (binary) fractions.
-(https://docs.python.org/3/tutorial/floatingpoint.html)
+> https://docs.python.org/3/tutorial/floatingpoint.html
 
 Example:
 ```
@@ -216,11 +235,19 @@ In which case, you can use the `decimal` built-in package (some developers store
 
 ### 3.7 Tips
 
-1. Name your variables clearly, ideally include their object types.
-    - e.g. `df_rawdata`, `ls_ticker`, `dict_options`, `arr_randunifom`
-2. Single letters for iterators
+1. Single letters for iterators
     `for k in range(100)`
+2. Write comments, this will help you remember what you were:
+    - trying to do 
+    - trying to achieve
+    - when you write something quick and dirty
+4. Better yet, name your variables clearly, ideally include their object types.
+    - e.g. `df_rawdata`, `ls_ticker`, `dict_options`, `arr_randunifom`
+5. You will re-use your code, so always write with this in mind. Because learning the easy way is better than pain.  
 
+
+
+<br>
 
 ## 4. Resources
 
@@ -231,10 +258,10 @@ This is the most important way to understand how to use any packages and its fun
 <br>
 
 ### 4.2 Other resources
-https://stackoverflow.com/
+https://stackoverflow.com/  
 https://quant.stackexchange.com/
 
-Alternatively, brush up on your google-fu (https://www.pcmag.com/encyclopedia/term/google-fu)
+Alternatively, brush up on your google-fu https://www.pcmag.com/encyclopedia/term/google-fu
 
 
 
