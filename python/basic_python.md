@@ -118,7 +118,7 @@ Dot is to indicate the sublevel and will work for any further sub level down.
 <br>
 
 ### 3.4 Namespace/Scope
-The namespace is how python knows what are the variables in your environment.
+The namespace is how python knows what objects are in your environment. These include packages, functions and variables.
 
 For example,
 ```
@@ -194,15 +194,41 @@ You would have seen this BS.callprice
 https://www.w3schools.com/python/python_classes.asp
 
 
+### 3.7 Gotchas
+
+The numbers that you see may not be how it is stored. This is true for any programming language as it is inherent with how computers work.
+> Floating-point numbers are represented in computer hardware as base 2 (binary) fractions.
+(https://docs.python.org/3/tutorial/floatingpoint.html)
+
+Example:
+```
+>>> 1/10
+0.1
+>>> format(0.1,'.50f')
+'0.10000000000000000555111512312578270211815834045410'
+```
+
+In which case, you can use the `decimal` built-in package (some developers store dollar values as cent strings)
+
+
 
 <br>
+
+### 3.7 Tips
+
+1. Name your variables clearly, ideally include their object types.
+    - e.g. `df_rawdata`, `ls_ticker`, `dict_options`, `arr_randunifom`
+2. Single letters for iterators
+    `for k in range(100)`
+
 
 ## 4. Resources
 
 ### 4.1 Documentation
-This is the most important way to understand how to use any function.
+This is the most important way to understand how to use any packages and its functions. It would be beneficial to understand how to read this.
 
 
+<br>
 
 ### 4.2 Other resources
 https://stackoverflow.com/
@@ -211,9 +237,6 @@ https://quant.stackexchange.com/
 Alternatively, brush up on your google-fu (https://www.pcmag.com/encyclopedia/term/google-fu)
 
 
-
-
-<br>
 
 
 
