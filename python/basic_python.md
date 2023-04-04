@@ -5,6 +5,8 @@ There are many ways to do one thing. While people will tell you better ways, the
 Below are some notes that address the environments around python rather than programming in python itself. 
 
 
+
+
 <br>
 
 ## 1. Terminal
@@ -16,6 +18,8 @@ Use of terminal is basic for managing python, including creating and managing vi
 In windows, there are 2 terminal available, command prompt and powershell. While powershell is a powerful terminal, using command prompt is (**relatively** safer) and easier.
 
 The easiest way to open command prompt in the folder you would like to operate, is to open the location in file explorer and type `cmd` in the address bar.
+
+
 
 
 <br>
@@ -32,6 +36,7 @@ The terminal is a powerful tool that can control the entire operating system and
 Terminal usually operates on the present working directory, similar to using a file explorer where you are only able to see the contents of the current location. The current location is shown before the prompt `C:/User/user/Desktop>`. The '>' is the prompt.
 
 
+
 <br>
 
 ### 1.2 Python scripts
@@ -42,9 +47,10 @@ Example:
 > open a text editor, copy paste the content below and save it as `hello.py`  
 > `print("Hello world")`
 
-
 Execute in terminal
 `python hello.py`
+
+<br> 
 
 So attempting to execute hello.py would not work (since the terminal cannot see the file, check using `dir`). From here, navigate to the desired folder/directory using the `cd` command. The easiest way is to copy the location from a file explorer
 
@@ -54,8 +60,10 @@ e.g.
 
 Next run `dir` and if `hello.py` is listed, then the terminal can "see" the file. Executing `python hello.py` will print `hello`.
 
-
 <br>
+
+
+
 
 ## 3. Python
 
@@ -65,9 +73,10 @@ Python can be invoked from the terminal to open the python shell or REPL (Read-E
   
 https://realpython.com/python-repl/
 
-
-
 <br>
+
+
+
 
 ### 3.2 Working directory
 Similarly, Python operates on the same principle that it can only "see" the current directory. This will be the directory where python was invoked from the terminal or where jupyter notebook was launched. 
@@ -83,10 +92,10 @@ os.getcwd()     # get current working directory
 
 To change directory in python, use `os.chdir(<directory>)`
 
-
-
-
 <br>
+
+
+
 
 ## 3.3 Imports
 In python imports are use to:
@@ -125,8 +134,11 @@ To import:
 
 Dot is to indicate the sublevel and will work for any further sub level down.
 
-
 <br>
+
+
+
+
 
 ### 3.4 Namespace/Scope
 The namespace is how python knows what objects are in your environment. These include packages, functions and variables.
@@ -165,8 +177,9 @@ Scope is an advanced topic but just note when you get an error message
 > NameError: name 'x' is not defined
 that this may be the reason.
 
-
 <br>
+
+
 
 ### 3.5 Atomic data types
 Python has several built in data types:
@@ -190,9 +203,11 @@ As you can see, the input are list or list of lists.
 
 Python has no JSON/YAML data type, in most cases it will be converted to a dictionary (or list of dictionaries).
 
-
-
 <br>
+
+
+
+
 
 ### 3.6 Object oriented
 In most cases, python packages are object oriented. This is a programming paradigm called object-oriented programming. 
@@ -212,6 +227,11 @@ You would have seen this in `BS.callprice`
 
 Python Classes https://www.w3schools.com/python/python_classes.asp
 
+<br>
+
+
+
+
 
 ### 3.7 Gotchas
 
@@ -229,9 +249,10 @@ Example:
 
 In which case, you can use the `decimal` built-in package (some developers store dollar values as cent strings)
 
-
-
 <br>
+
+
+
 
 ### 3.7 Tips
 
@@ -245,17 +266,20 @@ In which case, you can use the `decimal` built-in package (some developers store
     - e.g. `df_rawdata`, `ls_ticker`, `dict_options`, `arr_randunifom`
 5. You will re-use your code, so always write with this in mind. Because learning the easy way is better than pain.  
 
-
-
 <br>
+
+
+
 
 ## 4. Resources
 
 ### 4.1 Documentation
-This is the most important way to understand how to use any packages and its functions. It would be beneficial to understand how to read this.
-
+This is the most important way to understand how to use any packages and its functions. It would be beneficial to understand how to read this.   
+Ideally, someone explains to you how to read this. 
 
 <br>
+
+
 
 ### 4.2 Other resources
 https://stackoverflow.com/  
