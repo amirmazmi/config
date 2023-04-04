@@ -235,7 +235,7 @@ Python Classes https://www.w3schools.com/python/python_classes.asp
 
 ### 3.7 Gotchas
 
-The numbers that you see may not be how it is stored. This is true for any programming language as it is inherent with how computers work.
+The numbers that you see may not be how it is stored. Python does this to make your life easier. However, it is important to understand some issue with floating point numbers. This will be true for most programming languages as it is inherent with how computers work.
 > Floating-point numbers are represented in computer hardware as base 2 (binary) fractions.
 > https://docs.python.org/3/tutorial/floatingpoint.html
 
@@ -246,8 +246,7 @@ Example:
 >>> format(0.1,'.50f')
 '0.10000000000000000555111512312578270211815834045410'
 ```
-
-In which case, you can use the `decimal` built-in package (some developers store dollar values as cent strings)
+The number actually stored is not exact. In which case, you can use the `decimal` built-in package (some developers store dollar values as cent strings)
 
 <br>
 
