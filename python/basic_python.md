@@ -58,7 +58,8 @@ Next run `dir` and if `hello.py` is listed, then the terminal can "see" the file
 ## 3. Python
 
 ### 3.1 REPL
-Python can be invoked from the terminal to open the python shell or REPL (Read-Eval-Print-Loop). Simply type `python` in a terminal.
+Python can be invoked from the terminal to open the python shell or REPL (Read-Eval-Print-Loop). Simply type `python` in a terminal. Commands that can be run in a script can also be run in the REPL. This is a good way to do super simple tests or check basic syntax.
+
 
 https://realpython.com/python-repl/
 
@@ -139,14 +140,15 @@ Be careful not to override the built in functions as it will cause errors when r
 ```
 print = 3
 print("Test")
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-TypeError: 'int' object is not callable
+# output:
+# Traceback (most recent call last):
+#  File "<stdin>", line 1, in <module>
+# TypeError: 'int' object is not callable
 ```
+In the example above, you have overridden the print function with a value (not good!)
 
-This is an advanced topic but just note when you get an error message
+Scope is an advanced topic but just note when you get an error message
 > NameError: name 'x' is not defined
-
 that this may be the reason.
 
 
@@ -163,16 +165,56 @@ Python has several built in data types:
 It is important to understand the basic types as all other packagees will depend on these types. There are how infomation is passed back and forth.
 
 Example:
-    Python has no JSON data type, in most cases it will be converted to a dictionary (or list of dictionaries)
+Create the a pandas DataFrame with column name provided explicitly
+```
+df = pd.DataFrame([10,20,30,40,50,60], columns=['Numbers'])
+df = pd.DataFrame([['tom', 90], ['nick', 75], ['julie', 104]], columns=['Name', 'Age'])
+```
+As you can see, the input are list or list of lists.
 
-    Create the a pandas DataFrame with column name is provided explicitly
-    `df = pd.DataFrame([10,20,30,40,50,60], columns=['Numbers'])`
-    `df = pd.DataFrame([['tom', 90], ['nick', 75], ['julie', 104]], columns=['Name', 'Age'])
+Python has no JSON/YAML data type, in most cases it will be converted to a dictionary (or list of dictionaries).
 
 
--design language
--how to read documentation
--stack overflow
+<br>
+
+### 3.6 Object oriented
+In most cases, python packages are object oriented.
+
+Example: `df = pd.DataFrame()` means the object is a pandas class object.
+
+`"Hello world"` is a string object, therefore has associated methods (functions) such as `.replace()`
+
+```
+"Hello world".replace("o", "a")
+# output: 'Hella warld'
+```
+
+You would have seen this BS.callprice
+
+https://www.w3schools.com/python/python_classes.asp
+
+
+
+<br>
+
+## 4. Resources
+
+### 4.1 Documentation
+This is the most important way to understand how to use any function.
+
+
+
+### 4.2 Other resources
+https://stackoverflow.com/
+https://quant.stackexchange.com/
+
+Alternatively, brush up on your google-fu (https://www.pcmag.com/encyclopedia/term/google-fu)
+
+
+
+
+<br>
+
 
 
 
