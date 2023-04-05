@@ -151,7 +151,7 @@ Then your namespace will contain a symbolic reference `x` to indicate the variab
 
  1. `from src.BlackScholes import BS` - loaded as `BS`
  2. `import src.BlackScholes.BS as BSfunc` - loaded as `BSfunc`
- 3. `from src.BlackScholes import *` - loaded as defined the file
+ 3. `from src.BlackScholes import *` - loaded as defined in the file
   
 <br>  
 
@@ -175,6 +175,7 @@ In the example above, you have overridden the print function with a value (not g
 
 Scope is an advanced topic but just note when you get an error message
 > NameError: name 'x' is not defined
+  
 that this may be the reason.
 
 <br>
