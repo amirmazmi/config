@@ -60,7 +60,7 @@ e.g.
 
 Next run `dir` and if `hello.py` is listed, then the terminal can "see" the file. Executing `python hello.py` will print `Hello world`.
 
-<br>
+<br><br>
 
 
 
@@ -133,7 +133,9 @@ To import:
  3. `from src.BlackScholes import *`
 
 Dot is to indicate the sublevel and will work for any further sub level down.
-
+  
+The only way to reload imports is to restart the kernel (in jupyter). Python will not re-import even if you re-run the import line. 
+    
 <br>
 
 
@@ -147,7 +149,7 @@ For example,
 ```
 x = 3
 ```
-Then your namespace will contain a symbolic reference `x` to indicate the variable. Similar applies to the imports before.
+Then your namespace will contain a symbolic reference to `x` for the variable. Similar applies to the imports before.
 Most IDEs will have a variable explorer to see the current objects in your namespace. However, this is only available as an extension in jupyter. 
 
 <br>
@@ -284,7 +286,7 @@ The number actually stored is not exact. In which case, you can use the `decimal
 1. Plotly - in most cases, this will cover most plotting you need to do. Being able to zoom, pan, tilt will prevent from having to plot multiple times. 
 2. SymPy - symbolic python like using a graphical calculator. Define an expression once then substitute values. 
 
-<br>
+<br><br>
 
 
 
