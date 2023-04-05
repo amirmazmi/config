@@ -148,6 +148,9 @@ For example,
 x = 3
 ```
 Then your namespace will contain a symbolic reference `x` to indicate the variable. Similar applies to the imports before.
+In most IDEs will have a variable explorer to see the current objects in your namespace. However, this is only available as an extension in jupyter. 
+
+<br>
 
  1. `from src.BlackScholes import BS` - loaded as `BS`
  2. `import src.BlackScholes.BS as BSfunc` - loaded as `BSfunc`
@@ -264,7 +267,9 @@ The number actually stored is not exact. In which case, you can use the `decimal
     - when you write something quick and dirty
 4. Better yet, name your variables clearly, ideally include their object types.
     - e.g. `df_rawdata`, `ls_ticker`, `dict_options`, `arr_randunifom`
-5. You will re-use your code, so always write with this in mind. Because learning the easy way is better than pain.  
+5. When troubleshooting, use print statements liberally to check your logic. When you do programming more often, try to use an IDE and learn how to use a debugger. It will save a lot of time. 
+6. You will re-use your code, so always write with this in mind. Because learning the easy way is better than pain.  
+
 
 <br>
 
