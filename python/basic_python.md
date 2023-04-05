@@ -44,10 +44,10 @@ Python scripts are scripts that have been created and can run by itself or are a
 
 
 Example:
-> open a text editor, copy paste the content below and save it as `hello.py`  
+On your desktop, open a text editor, copy paste the content below and save it as `hello.py`  
 > `print("Hello world")`
 
-Execute in terminal
+Open a terminal and execute  
 `python hello.py`
 
 <br> 
@@ -58,7 +58,7 @@ e.g.
 `cd <desired folder>`  
 `cd C:/User/user/Desktop/scripts`  
 
-Next run `dir` and if `hello.py` is listed, then the terminal can "see" the file. Executing `python hello.py` will print `hello`.
+Next run `dir` and if `hello.py` is listed, then the terminal can "see" the file. Executing `python hello.py` will print `Hello world`.
 
 <br>
 
@@ -117,7 +117,7 @@ For the `BlackScholes.py` example, there are several ways to import.
  1. `from BlackScholes import BS` (from filename import function/class)
      - typical use and imports a specific function/class
  2. `import BlackScholes.BS as BSfunc`
-     - import and rename (reduce typing effort)
+     - import and rename (usually used to reduce typing effort)
  3. `from BlackScholes import *`
      - just import everything in this file e.g. other functions as well, if there was any
   
