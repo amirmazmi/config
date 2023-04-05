@@ -148,7 +148,7 @@ For example,
 x = 3
 ```
 Then your namespace will contain a symbolic reference `x` to indicate the variable. Similar applies to the imports before.
-In most IDEs will have a variable explorer to see the current objects in your namespace. However, this is only available as an extension in jupyter. 
+Most IDEs will have a variable explorer to see the current objects in your namespace. However, this is only available as an extension in jupyter. 
 
 <br>
 
@@ -162,7 +162,8 @@ There are several levels in namespace
 1. Built-in - print, while, if
 2. Global - any defined outside of a function i.e. `x=3` (acccessible in any functions)
 3. Local - any defined *inside* of a function (not accessible globally)
-  
+ 
+<br>
   
 Be careful not to override the built in functions as it will cause errors when running your code.
 
@@ -176,10 +177,12 @@ print("Test")
 ```
 In the example above, you have overridden the print function with a value (not good!)
 
+<br>
+
 Scope is an advanced topic but just note when you get an error message
 > NameError: name 'x' is not defined
   
-that this may be the reason.
+know that this may be the reason.
 
 <br>
 
@@ -195,7 +198,7 @@ Python has several built in data types:
 
 <br>
 
-It is important to understand the basic types as all other packagees will depend on these types. There are how infomation is passed back and forth.
+It is important to understand the basic types as all other packagees will depend on these types. This is how infomation is passed back and forth.
 
 Example:
 Create the a pandas DataFrame with column name provided explicitly
@@ -205,7 +208,7 @@ df = pd.DataFrame([['tom', 90], ['nick', 75], ['julie', 104]], columns=['Name', 
 ```
 As you can see, the input are list or list of lists.
 
-Python has no JSON/YAML data type, in most cases it will be converted to a dictionary (or list of dictionaries).
+Python has no JSON/YAML data type, in most cases it will be converted to a dictionary (or list of dictionaries). Important when connecting to APIs. 
 
 <br>
 
@@ -214,7 +217,7 @@ Python has no JSON/YAML data type, in most cases it will be converted to a dicti
 
 
 ### 3.6 Object oriented
-In most cases, python packages are object oriented. This is a programming paradigm called object-oriented programming. 
+In most cases, python packages are object oriented. This is a programming paradigm called object-oriented programming (OOP). 
 
 Example: `df = pd.DataFrame()` means the object is a pandas class object.
 
@@ -225,7 +228,7 @@ Example: `df = pd.DataFrame()` means the object is a pandas class object.
 # output: 'Hella warld'
 ```
 
-You would have seen this in `BS.callprice`
+You would have seen this in `df.head()`
 
 <br>
 
@@ -268,10 +271,15 @@ The number actually stored is not exact. In which case, you can use the `decimal
 4. Better yet, name your variables clearly, ideally include their object types.
     - e.g. `df_rawdata`, `ls_ticker`, `dict_options`, `arr_randunifom`
 5. When troubleshooting, use print statements liberally to check your logic. When you do programming more often, try to use an IDE and learn how to use a debugger. It will save a lot of time. 
-6. You will re-use your code, so always write with this in mind. Because learning the easy way is better than pain.  
-
+6. Even if you are not a developer or programmer, learning to use github (this platform you are reading on now) will make version management way easier. A desktop version called git is also available for sensitive or IP related work. 
+7. When asking for help, share the block of code and the exact error message. People want to help but guessing what caused the error is difficult. 
+8. You will re-use your code, so always write with this in mind. Because learning the easy way is better than pain.  
 
 <br>
+
+### 3.8 Recommendations
+1. Plotly - in most cases, this will cover most plotting you need to do. Being able to zoom, pan, tilt will prevent from having to plot multiple times. 
+2. SymPy - symbolic python like using a graphical calculator. Define an expression once then substitute values. 
 
 
 
