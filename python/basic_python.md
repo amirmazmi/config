@@ -65,9 +65,9 @@ Next run `dir` and if `hello.py` is listed, then the terminal can "see" the file
 
 
 
-## 3. Python
+## 2. Python
 
-### 3.1 REPL
+### 2.1 REPL
 Python can be invoked from the terminal to open the python shell or REPL (Read-Eval-Print-Loop). Simply type `python` in a terminal. Commands that can be run in a script can also be run in the REPL. This is a good way to do super simple tests or check basic syntax.
   
   
@@ -78,7 +78,7 @@ https://realpython.com/python-repl/
 
 
 
-### 3.2 Working directory
+### 2.2 Working directory
 Similarly, Python operates on the same principle that it can only "see" the current directory. This will be the directory where python was invoked from the terminal or where jupyter notebook was launched. 
 
 e.g.
@@ -97,7 +97,7 @@ To change directory in python, use `os.chdir(<directory>)`
 
 
 
-## 3.3 Imports
+## 2.3 Imports
 In python imports are use to:
  1. import packages
  2. import scripts or modules that have been created
@@ -140,7 +140,7 @@ Dot is to indicate the sublevel and will work for any further sub level down.
 
 
 
-### 3.4 Namespace/Scope
+### 2.4 Namespace/Scope
 The namespace is how python knows what objects are in your environment. These include packages, functions and variables.
 
 For example,
@@ -188,7 +188,7 @@ know that this may be the reason.
 
 
 
-### 3.5 Atomic data types
+### 2.5 Atomic data types
 Python has several built in data types:
  - list
  - dictionary
@@ -216,7 +216,7 @@ Python has no JSON/YAML data type, in most cases it will be converted to a dicti
 
 
 
-### 3.6 Object oriented
+### 2.6 Object oriented
 In most cases, python packages are object oriented. This is a programming paradigm called object-oriented programming (OOP). 
 
 Example: `df = pd.DataFrame()` means the object is a pandas class object.
@@ -240,7 +240,7 @@ Python Classes https://www.w3schools.com/python/python_classes.asp
 
 
 
-### 3.7 Gotchas
+### 2.7 Gotchas
 
 The numbers that you see may not be how it is stored. Python does this to make your life easier. However, it is important to understand some issue with floating point numbers. This will be true for most programming languages as it is inherent with how computers work.
 > Floating-point numbers are represented in computer hardware as base 2 (binary) fractions.
@@ -260,7 +260,7 @@ The number actually stored is not exact. In which case, you can use the `decimal
 
 
 
-### 3.7 Tips
+### 2.8 Tips
 
 1. Single letters for iterators
     `for k in range(100)`
@@ -277,16 +277,21 @@ The number actually stored is not exact. In which case, you can use the `decimal
 
 <br>
 
-### 3.8 Recommendations
+
+
+
+### 2.9 Recommendations
 1. Plotly - in most cases, this will cover most plotting you need to do. Being able to zoom, pan, tilt will prevent from having to plot multiple times. 
 2. SymPy - symbolic python like using a graphical calculator. Define an expression once then substitute values. 
 
+<br>
 
 
 
-## 4. Resources
 
-### 4.1 Documentation
+## 3. Resources
+
+### 3.1 Documentation
 This is the most important way to understand how to use any packages and its functions. It would be beneficial to understand how to read this.   
 Ideally, someone explains to you how to read this. 
 
@@ -294,7 +299,7 @@ Ideally, someone explains to you how to read this.
 
 
 
-### 4.2 Other resources
+### 3.2 Other resources
 https://stackoverflow.com/  
 https://quant.stackexchange.com/
 
