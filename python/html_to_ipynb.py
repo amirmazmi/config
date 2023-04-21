@@ -80,7 +80,7 @@ def parse_data(dom):
 # --------------------------------------------------------------------
 
 if __name__ == '__main__':
-    print("\t####  START : html to notebook parser ####")
+    print("\n\t####  START : html to notebook parser ####")
     with open( HTML_INFILE, 'r') as html_input:
         html_tree = etree.HTML( html_input.read())
 
