@@ -23,6 +23,7 @@ byobu new-window -n <window_name> -t <session_name>
 byobu select-window -t SESSION:0  
 byobu select-pane -t SESSION:0
 ```
+<br>
 
 ### Alias
 `select-window`:`selectw`  
