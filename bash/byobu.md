@@ -10,6 +10,9 @@ To start a new session (new byobu instance you can attach to) with a command you
 To create it already detached:  
 `byobu new-session -d -s "session name" "ls -la && sleep 5"`  
   
+To list all sessions:  
+`byobu ls`
+  
 To attach to specific session by name:  
 `byobu attach -t <session name>`  
  but running `byobu attach` will attach to any session then can navigate using `ctrl a "`  
