@@ -24,7 +24,7 @@ args = parser.parse_args()
 
 
 HTML_INFILE = args.file         #'02-Modeling-Returns.html'
-IPYNB_OUTFILE = f'{HTML_INFILE[:-5]}-parsed1.ipynb'
+IPYNB_OUTFILE = f'{HTML_INFILE[:-5]}-parsed2.ipynb'
 
 create_nb = {'nbformat': 4, 'nbformat_minor': 2, 'cells': [],
               'metadata':
@@ -37,11 +37,18 @@ create_nb = {'nbformat': 4, 'nbformat_minor': 2, 'cells': [],
 def parse_data(dom):
     print("[+]Parsing data...\n")
     # get cells
-    for enum,row in enumerate(dom.xpath("//div[contains(@class, 'jp-Notebook-cell')]")):
+    #for enum,row in enumerate(dom.xpath("//div[contains(@class, 'jp-Notebook-cell')]")):
+    for enum,row in enumerate(dom.xpath("//div[contains(@class, 'jp-Cell-inputWrapper')]")):
         cell = {}; cell['metadata'] = {}; ls_innertext = []
 
-        # markdown
-        if 'jp-MarkdownCell' in row.values()[0]:
+        # MARKDOWN
+
+        #print(row.values()[0])
+        #if 'jp-MarkdownCell' in row.values()[0]:
+        #if row.values()[0] in ['jp-MarkdownCell', 'jp-Cell-inputWrapper']:
+
+        if len(row.xpath(".//div[contains(@class,'jp-RenderedMarkdown')]")) > 0:
+            print(f'''{enum}: {len(row.xpath(".//div[contains(@class,'jp-RenderedMarkdown')]"))}''')
             cell['cell_type'] = 'markdown'
             for k in row.xpath(".//div[contains(@class,'jp-RenderedMarkdown')]")[0].iterchildren():
                 ls_content = [item1.replace("\n","  \n") for item1 in k.itertext()]
@@ -65,12 +72,16 @@ def parse_data(dom):
             if len(ls_innertext):
                 cell['source'] = ls_innertext #[''.join(ls_innertext)]
 
-        # if code
-        if 'jp-CodeCell' in row.values()[0]:
+        # CODE
+
+        #if 'jp-CodeCell' in row.values()[0]:
+        if len(row.xpath(".//div[contains(@class,'jp-InputArea-editor')]")) > 0:
+            print(f'''{enum}: {len(row.xpath(".//div[contains(@class,'jp-InputArea-editor')]"))}''')
             cell['cell_type'] = 'code'
             cell['outputs'] = []
             cell['execution_count'] = None
-            for snippet in row.xpath(".//div[contains(@class, 'jp-Cell-inputWrapper')]//pre"):
+            #for snippet in row.xpath(".//div[contains(@class, 'jp-Cell-inputWrapper')]//pre"):
+            for snippet in row.xpath(".//div[contains(@class, 'jp-InputArea-editor')]//pre"):
                 code_str = ''.join([snip for snip in snippet.itertext()])
             cell['source'] = [code_str]
 
