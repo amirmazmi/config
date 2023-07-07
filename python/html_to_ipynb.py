@@ -48,7 +48,7 @@ def parse_data(dom):
         #if row.values()[0] in ['jp-MarkdownCell', 'jp-Cell-inputWrapper']:
 
         if len(row.xpath(".//div[contains(@class,'jp-RenderedMarkdown')]")) > 0:
-            print(f'''{enum}: {len(row.xpath(".//div[contains(@class,'jp-RenderedMarkdown')]"))}''')
+            #print(f'''{enum}: {len(row.xpath(".//div[contains(@class,'jp-RenderedMarkdown')]"))}''')
             cell['cell_type'] = 'markdown'
             for k in row.xpath(".//div[contains(@class,'jp-RenderedMarkdown')]")[0].iterchildren():
                 ls_content = [item1.replace("\n","  \n") for item1 in k.itertext()]
@@ -76,7 +76,7 @@ def parse_data(dom):
 
         #if 'jp-CodeCell' in row.values()[0]:
         if len(row.xpath(".//div[contains(@class,'jp-InputArea-editor')]")) > 0:
-            print(f'''{enum}: {len(row.xpath(".//div[contains(@class,'jp-InputArea-editor')]"))}''')
+            #print(f'''{enum}: {len(row.xpath(".//div[contains(@class,'jp-InputArea-editor')]"))}''')
             cell['cell_type'] = 'code'
             cell['outputs'] = []
             cell['execution_count'] = None
