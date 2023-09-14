@@ -12,7 +12,7 @@ x <- c(
     "TTR",
     "swirl",
     "forecast",
-    "ggplot2",
+    "plotly",
     "quantmod",
     "arfima",
     "fracdiff",
