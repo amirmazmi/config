@@ -26,6 +26,7 @@ import shutil
 import mimetypes
 import re
 from io import BytesIO
+import socket
 
 
 class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
@@ -309,4 +310,10 @@ if __name__ == '__main__':
                         nargs='?',
                         help='Specify alternate port [default: 8000]')
     args = parser.parse_args()
+
+    # show ip address
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.connect(('8.8.8.8', 1))           # connect() for UDP doesn't send packets
+    local_ip_address = s.getsockname()[0]
+    print(f"Current IP: {local_ip_address}")
     test(serve_port=args.port)
