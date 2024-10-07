@@ -53,6 +53,9 @@ run_speedtest() {
 alias testmynet=run_speedtest
 
 
+# encode base64
+encode_b64() { read -sp "string to encode: " passvar; echo -e '\n'; echo $passvar | base64; echo;}
+
 
 '''
 
