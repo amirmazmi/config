@@ -13,32 +13,34 @@ export PYENV_ROOT="$HOME/.pyenv"
 162 eval "$(pyenv init -)"
 163 eval "$(pyenv virtualenv-init -)"
 ```
-
-
 <br>
 
----  
 
-### **Commands**
 
+## **Commands**
+
+list available python versions  
+&emsp; `pyenv versions`  
+
+  
 list all available  
-&emsp; `pyenv install --list`
+&emsp; `pyenv install --list`   
 
+    
+install          
+&emsp; `pyenv install 3.9.16`  
 
-install  
-&emsp; `pyenv install 3.9.16`
-  
-  
+    
 create virtualenv using specific version  
 &emsp; `pyenv virtualenv <python_version> <environment_name>`
-  
-  
+
+    
 activate environment - this will create `.python-version` which contains the environment name (since the environment no longer is in the project folder)  
-&emsp; `pyenv local <environment_name>`  
-&emsp;&emsp;&emsp; or  
+&emsp; `pyenv local <environment_name>` 
+&emsp; or 
 &emsp; `pyenv activate <environment_name>`  
 
-
+  
 deactivate  
 &emsp; `pyenv deactivate`
 
