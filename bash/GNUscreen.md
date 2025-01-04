@@ -29,6 +29,7 @@ Commands are invoked using <kbd>ctrl-a  :</kbd>
  - `split -h` &ensp; split into horizontal regions (top and bottom)
  - `split -v` &ensp; split into vertical regions (side by side)
  - `resize +N` &ensp; or `-N` (n is number or lines)
+ - `sessionname <newname>` &ensp; rename session
 
 
 
