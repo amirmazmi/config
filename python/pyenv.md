@@ -19,7 +19,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 
 ## **Commands**
 
-list available python versions  
+list available (installed) python versions  
 &emsp; `pyenv versions`  
 
   
