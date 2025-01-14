@@ -224,6 +224,7 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header("Content-type", "text/html")
         self.send_header("Content-Length", str(length))
+        self.send_header("Cache-Control", "no-cache")
         self.end_headers()
         return f
 
@@ -315,5 +316,5 @@ if __name__ == '__main__':
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     s.connect(('8.8.8.8', 1))           # connect() for UDP doesn't send packets
     local_ip_address = s.getsockname()[0]
-    print(f"Current IP: {local_ip_address}")
+    print(f"URL: http://{local_ip_address}:{args.port}")
     test(serve_port=args.port)
