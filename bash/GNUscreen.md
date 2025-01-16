@@ -32,4 +32,37 @@ Commands are invoked using <kbd>ctrl-a  :</kbd>
  - `sessionname <newname>` &ensp; rename session
 
 
+### Config file ~/.screenrc
+```
+# file for GNU screen settings
 
+autodetach 	on 
+startup_message off
+defscrollback 	10000			# scrollback history
+altscreen 	on			# vim output does not stay in terminal history
+
+#term xterm-256color
+term screen-256color
+termcapinfo xterm* OL=2000
+
+caption 	always "%?%F%{= Kk}%:%{=u kR}%?  %h %-024=%{+b} %C%a %D %d %M %Y%{= db}"
+
+shelltitle 	'bash'
+hardstatus 	alwayslastline
+hardstatus 	string '%{gk}[%{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= w}%?%+Lw%?%? %{g}][%{d}%l%{g}][ %{= w}%Y/%m/%d %0C:%s%a%{g} ]%{W}'
+# hardstatus 	alwayslastline "%{= kR} %-Lw%{=b Kk} %n%f %t %{-}%+Lw %=%{= dd}"
+
+# Key bindings
+#bindkey -k k7 detach # bind F7  to detach screen session from this terminal
+#bindkey -k k8 kill   # bind F8  to kill current screen window.
+#bindkey -k k9 next   # bind F9 to move to previous window
+#bindkey -k F1 prev   # bind F11 to move to next window
+#bindkey -k F2 hardstatus alwaysignore # F12 to turn the status bar on
+#bindkey -k k9 screen # bind F9  to create a new screen
+#bindkey -k k; title  # bind F10 to rename current screen window
+#bindkey -k F1 prev   # bind F11 to move to previous window
+#bindkey -k F2 next   # bind F12 to move to next window
+#bindkey "^[Od" prev  # change window with ctrl-left
+#bindkey "^[Oc" next  # change window with ctrl-right
+
+```
