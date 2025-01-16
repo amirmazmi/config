@@ -36,23 +36,28 @@ Commands are invoked using <kbd>ctrl-a  :</kbd>
 ```
 # file for GNU screen settings
 
-autodetach 	on 
+autodetach 	    on
 startup_message off
+
 defscrollback 	10000			# scrollback history
-altscreen 	on			# vim output does not stay in terminal history
+altscreen 	    on			    # vim output does not stay in terminal history
 
-#term xterm-256color
-term screen-256color
-termcapinfo xterm* OL=2000
+term            screen-256color
+#term           xterm-256color
+termcapinfo     xterm* OL=2000
 
-caption 	always "%?%F%{= Kk}%:%{=u kR}%?  %h %-024=%{+b} %C%a %D %d %M %Y%{= db}"
+caption 	   always "%?%F%{= Kk}%:%{=u kR}%?  %h %-024=%{+b} %C%a %D %d %M %Y%{= db}"
 
-shelltitle 	'bash'
-hardstatus 	alwayslastline
-hardstatus 	string '%{gk}[%{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= w}%?%+Lw%?%? %{g}][%{d}%l%{g}][ %{= w}%Y/%m/%d %0C:%s%a%{g} ]%{W}'
+shelltitle 	   'bash'
+hardstatus 	    alwayslastline
 # hardstatus 	alwayslastline "%{= kR} %-Lw%{=b Kk} %n%f %t %{-}%+Lw %=%{= dd}"
 
-# Key bindings
+hardstatus 	    string '%{gk}[%{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= w}%?%+Lw%?%? %{g}][%{d}%l%{g}][ %{= w}%Y/%m/%d %0C:%s%a%{g} ]%{W}'
+## Without time
+#hardstatus     string '%{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= w}%?%+Lw%?%? %{g}]'
+## source: https://unix.stackexchange.com/questions/114505/gnu-screen-status-bar-how-to-make-it-display-shell-session-names
+
+
 #bindkey -k k7 detach # bind F7  to detach screen session from this terminal
 #bindkey -k k8 kill   # bind F8  to kill current screen window.
 #bindkey -k k9 next   # bind F9 to move to previous window
