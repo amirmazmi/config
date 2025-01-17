@@ -2,10 +2,16 @@
 
 man page: https://www.gnu.org/software/screen/manual/screen.html
 
+|                 | command                                                | note                           |
+|:---------------:|--------------------------------------------------------|--------------------------------|
+| create session  | `screen -S <session name>`                             |                                |
+| list session    | `screen -ls`                                           |                                |
+| resume          | `screen -r <numeric id or session name>`               |                                |
+| start detached  | `screen -dmS <session name> bash -c '<command>; bash'` | bash at the end to stay open   |
+| kill window     | `screen -S <sessionname> -p 0 -X kill`                 | 'p' switch/flag selects window |
+| kill session    | `screen -S <sessionname> -X quit`                      |                                |
 
-- create session `screen -S <session_name>`  
-- list session  `screen -ls`   
-- resume `screen -r <numeric id or session name>`  
+
 
 
 <br>
