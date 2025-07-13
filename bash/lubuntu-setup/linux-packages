@@ -18,3 +18,4 @@ curl
 net-tools
 pmount
 scrot
+tmux
