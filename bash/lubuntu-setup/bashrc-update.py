@@ -47,7 +47,7 @@ run_speedtest() {
         SPEEDTEST_TARG_SERVER=$( speedtest --list | head -n90 | tail -n1 | awk '{ print $1 }' | sed 's/)//' | sed -n 4p ) ;
         echo -e '\n\t\t####### SPEEDTEST (bytes) ####### \n' ;
         TEMP=$( (speedtest --csv-header --csv-delimiter "|"  | sed 's/Share|//' | sed 's/ /_/g') && (for (( k=1;k<=${1:-3};k++)); do (speedtest --csv --csv-delimiter "|" --bytes --server $SPEEDTEST_TARG_SERVER | sed 's/ /_/g' | awk -F"|" '{printf("%s|%s|%s|%s|%'"'"'.2f|%s|%'"'"'.2f|%'"'"'.2f|%s\n",$1,$2,$3,$4,$5,$6,$7,$8,$10)}'); done));
-        echo $TEMP | sed 's/ /\n/g' | column -t -s'|' ;| column -t -s'|' ;
+        echo $TEMP | sed 's/ /\n/g' | column -t -s'|' ;
         echo -e '\n'
 }
 alias testmynet=run_speedtest
