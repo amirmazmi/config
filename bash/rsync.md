@@ -9,7 +9,7 @@
  - `--dry-run` to test output
 
 ```
-rsync -chavzP --stats <user>@<remote.host>:</path/to/copy> </local/path>
+rsync -chavzP --exclude={pyenv,__pycache__} --stats <user>@<remote.host>:</path/to/copy> </local/path>
 ```
 
 <br>
@@ -17,5 +17,5 @@ rsync -chavzP --stats <user>@<remote.host>:</path/to/copy> </local/path>
 - using ssh
 
 ```
-rsync -chavzP -e "ssh -p <portNumber>" <user>@<remote.host>:</path/to/copy> </local/path>
+rsync -chavzP --exclude={pyenv,__pycache__} -e "ssh -p <portNumber>" <user>@<remote.host>:</path/to/copy> </local/path>
 ```
