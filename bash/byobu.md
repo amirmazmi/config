@@ -42,17 +42,17 @@ commands can also be chained using `\;`
 rename window - `F8`  
   
 split pane  
-`ctrl a |` OR `ctrl a S`  
-`shift f2`
+ - `ctrl a |` OR `ctrl a S`  
+ - `shift f2`
   
 unsplit  
-`ctrl a !`  
+ - `ctrl a !`  
   
 resize pane  
-`ctrl a` + `ctrl ↓ OR ↑`
+ - `ctrl a` + `ctrl ↓ OR ↑`
 
 toggle (un)maximize pane  
-`shift f11`
+ - `shift f11`
 
 scroll  
-`ctrl a` + `pgUp`
+ - `ctrl a` + `pgUp`
