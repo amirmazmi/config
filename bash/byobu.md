@@ -51,8 +51,8 @@ unsplit
 resize pane  
 `ctrl a` + `ctrl ↓ OR ↑`
 
-toggle (un)maximize pane
+toggle (un)maximize pane  
 `shift f11`
 
-scroll
+scroll  
 `ctrl a` + `pgUp`
